@@ -10,6 +10,7 @@ function App() {
 
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
+  const [weatherImage, setWeatherImage] = useState();
 
   const search = evt => {
     if (evt.key === "Enter") {
@@ -19,11 +20,13 @@ function App() {
           setWeather(result);
           setQuery('');
           console.log(result);
+          let imgsrc = ((typeof weather.weather[0].icon) != 'undefined' ? `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png` : null );
+          setWeatherImage(imgsrc);
         });
     }
   }
 
-  let imgsrc = ((typeof weather.weather[0].icon) != 'undefined' ? `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png` : null );
+  
 
   
 
@@ -68,7 +71,7 @@ function App() {
                 {Math.round(weather.main.temp)}°C
               </div>
               <div className="icon">
-                <img src={imgsrc} alt="" />
+                <img src={weatherImage} alt="" />
               </div>
               <div className="weather">{weather.weather[0].main}</div>
               <div className="description">{weather.weather[0].description}</div>
