@@ -108,3 +108,11 @@ main{
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
+
+.time{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 50px;
+}
